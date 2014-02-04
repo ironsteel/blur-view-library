@@ -34,7 +34,7 @@ Example:
 + Example usage in layout
 
 ```xml
-    <!-- Views who add an image baground goes here -->
+    <!-- Views who add an image backround goes here -->
 
     <eu.masconsult.blurview.library.FrameLayoutWithBluredBackground
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@ Example:
         <!-- Child views here -->
     </eu.masconsult.blurview.library.FrameLayoutWithBluredBackground>
 ```
-    Default blur radius is 15 if omitted in xml layout.
+**Default blur radius is 15 if omitted in xml layout.**
 
 + Get/Set blur radius from code
 

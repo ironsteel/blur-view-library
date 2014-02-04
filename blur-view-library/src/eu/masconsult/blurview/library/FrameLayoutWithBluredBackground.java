@@ -2,6 +2,7 @@
 package eu.masconsult.blurview.library;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.support.v8.renderscript.Allocation;
@@ -14,6 +15,8 @@ import android.widget.FrameLayout;
 
 public class FrameLayoutWithBluredBackground extends FrameLayout {
 
+    private static final int DEFAULT_BLUR_RADIUS = 15;
+    private static final int MAX_BLUR_RADIUS = 25;
     private RenderScript renderScript;
     private ScriptIntrinsicBlur blurIntrinsic;
 
@@ -25,7 +28,7 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
     private Allocation in;
     private Allocation out;
 
-    private float blurRadius = 15.f;
+    private float blurRadius = 0;
 
     public FrameLayoutWithBluredBackground(Context context) {
         super(context);
@@ -34,18 +37,36 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
 
     public FrameLayoutWithBluredBackground(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        getBlurRadiusFromAttributes(attrs);
         setUpBlurIntrinsic(context);
     }
 
     public FrameLayoutWithBluredBackground(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        getBlurRadiusFromAttributes(attrs);
+    }
+
+    private void getBlurRadiusFromAttributes(AttributeSet attrs) {
+        TypedArray a = getContext().getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.FrameLayoutWithBluredBackground,
+                0, 0);
+
+        try {
+            blurRadius = a.getFloat(R.styleable.FrameLayoutWithBluredBackground_blurRadius, DEFAULT_BLUR_RADIUS);
+            if (blurRadius > MAX_BLUR_RADIUS) {
+                throw new RuntimeException("Invalid blur radius must be 0 < blurRadius < 25");
+            }
+        } finally {
+            a.recycle();
+        }
     }
 
     private void setUpBlurIntrinsic(Context context) {
         renderScript = RenderScript.create(context);
         blurIntrinsic = ScriptIntrinsicBlur.create(renderScript,
                 Element.U8_4(renderScript));
-
+        setBackgroundColor(getResources().getColor(android.R.color.transparent));
     }
 
     @Override
@@ -103,6 +124,10 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
     public void setBlurRadius(float blurRadius) {
         this.blurRadius = blurRadius;
         invalidate();
+    }
+
+    public float getBlurRadius() {
+        return blurRadius;
     }
 
 }

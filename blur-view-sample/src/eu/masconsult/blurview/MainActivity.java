@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
         top = (FrameLayoutWithBluredBackground) findViewById(R.id.top_blured_layout);
 
         SeekBar blurSeekBar = (SeekBar) findViewById(R.id.blur_radius_slider);
+        blurSeekBar.setProgress((int) bottom.getBlurRadius());
         blurSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
             @Override

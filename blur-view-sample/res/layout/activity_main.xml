@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:blurView="http://schemas.android.com/apk/res/eu.masconsult.blurview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
@@ -32,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="bottom"
+        blurView:blurRadius="5"
         android:background="#5500f100">
 
 
@@ -49,6 +51,7 @@
          android:layout_width="match_parent"
          android:layout_height="50dp"
          android:layout_gravity="top"
+         blurView:blurRadius="5"
          android:background="#550000f1" >
          
          <SeekBar

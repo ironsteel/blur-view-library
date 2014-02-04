@@ -52,7 +52,7 @@ Example:
 
 ```java
     view.setBlurRadius(val);
-    view.getBludRaduis();
+    view.getBlurRaduis();
 ```
 
 ## Credits

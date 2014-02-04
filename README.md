@@ -10,6 +10,9 @@ Which means that its recomended for use with less dynamic layout.
 + SDK Tools version >= 22.2
 + Android Build Tools version >= 18.1.0
 
+## Sample
+
++ Sample app included in blur-view-sample
 
 ## Usage
 

@@ -16,15 +16,17 @@ Which means that its recomended for use with less dynamic layout.
 + Clone
 + Import blur-view-library in your IDE 
 + Reference the library from your application project (e.g. project.properties)
-+ Delcare custom namespace in your xml layout
++ Declare custom namespace in your xml layout
 
+Example:
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:blurView="http://schemas.android.com/apk/res/{yout_application_package_goes_here}" <!-- Add this line -->
+    xmlns:blurView="http://schemas.android.com/apk/res/{YOUR_APP_PACKAGE}"
     android:layout_width="match_parent"
     android:layout_height="match_parent">    
 ```
+
 
 + Example usage in layout
 
@@ -35,11 +37,22 @@ Which means that its recomended for use with less dynamic layout.
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="bottom"
-        blurView:blurRadius="5" <!-- This can be omitted, dafault value is 15 -->
+        blurView:blurRadius="5" 
         >
 
         <!-- Child views here -->
     </eu.masconsult.blurview.library.FrameLayoutWithBluredBackground>
 ```
+    Default blur radius is 15 if omitted in xml layout.
 
++ Get/Set blur radius from code
 
+```java
+    view.setBlurRadius(val);
+    view.getBludRaduis();
+```
+
+## Credits
+
+- Background image is from Nicolas Pomepuy's Blur Effect for Android Design -project<br>
+  https://github.com/PomepuyN/BlurEffectForAndroidDesign

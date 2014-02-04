@@ -1,12 +1,12 @@
 
-package com.ironsteel.blur_view;
+package eu.masconsult.blurview;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import eu.masconsult.blurview.R;
 
 public class MainActivity extends Activity {
 

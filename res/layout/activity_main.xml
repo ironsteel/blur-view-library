@@ -2,33 +2,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <ImageView
-        android:id="@+id/image"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample_image" />
+        android:layout_height="match_parent" >
 
-    <com.ironsteel.blur_view.FrameLayoutWithBluredBackground
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/image_bg"
+                />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem_ipsum" 
+                android:textColor="@android:color/white"
+                android:textSize="18sp"/>
+        </FrameLayout>
+    </ScrollView>
+.
+
+    <eu.masconsult.blurview.FrameLayoutWithBluredBackground
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp" >
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        android:background="@android:color/transparent">
 
-        <Button
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="sa;lkd;salkda;" />
-    </com.ironsteel.blur_view.FrameLayoutWithBluredBackground>
+            android:text="This is some random text"
+            android:textSize="18sp"
+            android:textColor="@android:color/white" />
+      </eu.masconsult.blurview.FrameLayoutWithBluredBackground>
+    
+     <eu.masconsult.blurview.FrameLayoutWithBluredBackground
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="This is some random text"
+            android:textSize="18sp"
+            android:textColor="@android:color/white" />
+    </eu.masconsult.blurview.FrameLayoutWithBluredBackground>
 
 </FrameLayout>

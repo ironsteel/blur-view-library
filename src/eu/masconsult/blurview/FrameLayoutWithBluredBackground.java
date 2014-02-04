@@ -1,5 +1,5 @@
 
-package com.ironsteel.blur_view;
+package eu.masconsult.blurview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -59,17 +59,17 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
         blurredBackground = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(),
                 Bitmap.Config.ARGB_8888);
         blurCanvas = new Canvas(originalBackground);
-        in = Allocation.createFromBitmap(renderScript, originalBackground);
-        out = Allocation.createFromBitmap(renderScript,
-                blurredBackground);
+
     }
 
     private void blur() {
-        blurIntrinsic.setRadius(10.f);
+        in = Allocation.createFromBitmap(renderScript, originalBackground);
+        out = Allocation.createFromBitmap(renderScript, blurredBackground);
+        blurIntrinsic.setRadius(15.f);
         blurIntrinsic.setInput(in);
         blurIntrinsic.forEach(out);
         out.copyTo(blurredBackground);
-        blurFinished = true;
+        // blurFinished = true;
     }
 
     @Override

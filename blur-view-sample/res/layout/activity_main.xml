@@ -27,11 +27,12 @@
     </ScrollView>
 .
 
-    <eu.masconsult.blurview.FrameLayoutWithBluredBackground
+    <eu.masconsult.blurview.library.FrameLayoutWithBluredBackground
+        android:id="@+id/bottom_blured_layout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="bottom"
-        android:background="@android:color/transparent">
+        android:background="#5500f100">
 
 
         <TextView
@@ -41,21 +42,22 @@
             android:text="This is some random text"
             android:textSize="18sp"
             android:textColor="@android:color/white" />
-      </eu.masconsult.blurview.FrameLayoutWithBluredBackground>
+      </eu.masconsult.blurview.library.FrameLayoutWithBluredBackground>
     
-     <eu.masconsult.blurview.FrameLayoutWithBluredBackground
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="top"
-        android:background="@android:color/transparent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="This is some random text"
-            android:textSize="18sp"
-            android:textColor="@android:color/white" />
-    </eu.masconsult.blurview.FrameLayoutWithBluredBackground>
+     <eu.masconsult.blurview.library.FrameLayoutWithBluredBackground
+         android:id="@+id/top_blured_layout"
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+         android:layout_gravity="top"
+         android:background="#550000f1" >
+         
+         <SeekBar
+             android:id="@+id/blur_radius_slider" 
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:max="25"
+             />
+    </eu.masconsult.blurview.library.FrameLayoutWithBluredBackground>
 
 </FrameLayout>

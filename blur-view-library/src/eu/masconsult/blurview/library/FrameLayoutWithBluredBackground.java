@@ -1,5 +1,5 @@
 
-package eu.masconsult.blurview;
+package eu.masconsult.blurview.library;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,7 +24,8 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
     private Canvas blurCanvas;
     private Allocation in;
     private Allocation out;
-    private boolean blurFinished;
+
+    private float blurRadius = 15.f;
 
     public FrameLayoutWithBluredBackground(Context context) {
         super(context);
@@ -58,27 +59,21 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
                 Bitmap.Config.ARGB_8888);
         blurredBackground = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(),
                 Bitmap.Config.ARGB_8888);
+        in = Allocation.createFromBitmap(renderScript, originalBackground);
+        out = Allocation.createFromBitmap(renderScript, blurredBackground);
         blurCanvas = new Canvas(originalBackground);
 
     }
 
     private void blur() {
-        in = Allocation.createFromBitmap(renderScript, originalBackground);
-        out = Allocation.createFromBitmap(renderScript, blurredBackground);
-        blurIntrinsic.setRadius(15.f);
+        blurIntrinsic.setRadius(blurRadius);
         blurIntrinsic.setInput(in);
         blurIntrinsic.forEach(out);
         out.copyTo(blurredBackground);
-        // blurFinished = true;
     }
 
     @Override
     public void draw(Canvas canvas) {
-        if (blurFinished) {
-            canvas.drawBitmap(blurredBackground, 0, 0, null);
-            super.draw(canvas);
-            return;
-        }
         View v = (View) getParent();
 
         // Avoid recursive explosion
@@ -103,6 +98,11 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
         blurCanvas.translate(-getLeft(), -getTop());
         v.draw(blurCanvas);
         blurCanvas.restore();
+    }
+
+    public void setBlurRadius(float blurRadius) {
+        this.blurRadius = blurRadius;
+        invalidate();
     }
 
 }

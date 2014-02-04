@@ -37,36 +37,38 @@ public class FrameLayoutWithBluredBackground extends FrameLayout {
 
     public FrameLayoutWithBluredBackground(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        getBlurRadiusFromAttributes(attrs);
+        setUpStylableAttributes(attrs);
         setUpBlurIntrinsic(context);
     }
 
     public FrameLayoutWithBluredBackground(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        getBlurRadiusFromAttributes(attrs);
+        setUpStylableAttributes(attrs);
     }
 
-    private void getBlurRadiusFromAttributes(AttributeSet attrs) {
+    private void setUpStylableAttributes(AttributeSet attrs) {
         TypedArray a = getContext().getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.FrameLayoutWithBluredBackground,
                 0, 0);
 
         try {
-            blurRadius = a.getFloat(R.styleable.FrameLayoutWithBluredBackground_blurRadius, DEFAULT_BLUR_RADIUS);
+            blurRadius = a.getFloat(R.styleable.FrameLayoutWithBluredBackground_blurRadius,
+                    DEFAULT_BLUR_RADIUS);
             if (blurRadius > MAX_BLUR_RADIUS) {
                 throw new RuntimeException("Invalid blur radius must be 0 < blurRadius < 25");
             }
         } finally {
             a.recycle();
         }
+
+        setWillNotDraw(false);
     }
 
     private void setUpBlurIntrinsic(Context context) {
         renderScript = RenderScript.create(context);
         blurIntrinsic = ScriptIntrinsicBlur.create(renderScript,
                 Element.U8_4(renderScript));
-        setBackgroundColor(getResources().getColor(android.R.color.transparent));
     }
 
     @Override

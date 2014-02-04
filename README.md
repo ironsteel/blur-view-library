@@ -19,13 +19,14 @@ Which means that its recomended for use with less dynamic layout.
 + Clone
 + Import blur-view-library in your IDE 
 + Reference the library from your application project (e.g. project.properties)
++ Add android:hardwareAccelerated="false" in your activity declaration in AndroidManifest.xml
 + Declare custom namespace in your xml layout
 
 Example:
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:blurView="http://schemas.android.com/apk/res/{YOUR_APP_PACKAGE}"
+    xmlns:blurView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">    
 ```
@@ -56,6 +57,9 @@ Example:
 ```
 
 ## Credits
+
+- BlurEffectForAndroidDesign - <https://github.com/PomepuyN/BlurEffectForAndroidDesign>
+- android\_annblur - <https://github.com/harism/android_anndblur>
 
 - Background image is from Nicolas Pomepuy's Blur Effect for Android Design -project<br>
   https://github.com/PomepuyN/BlurEffectForAndroidDesign

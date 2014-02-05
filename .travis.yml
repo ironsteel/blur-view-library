@@ -37,4 +37,4 @@ before_install:
 
 
 script:
-  - gradle build
+    - gradle --info build

@@ -1,6 +1,6 @@
 # Blur view library
 
-[![Build Status](https://travis-ci.org/masconsult/blur-view-library.png)](https://travis-ci.org/masconsult/blur-view-library)
+[![Build Status](https://travis-ci.org/masconsult/blur-view-library.png?branch=master)](https://travis-ci.org/masconsult/blur-view-library)
 
 FrameLayout view which blurs the parent view behind it using render script blur intrinsic from render script support library.
 

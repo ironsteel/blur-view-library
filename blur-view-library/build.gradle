@@ -17,6 +17,7 @@ dependencies {
 }
 
 task nativeLibsToJar(type: Zip, description: 'create a jar archive of the native libs') {
+    new File("$buildDir/native-libs").mkdirs()
     destinationDir file("$buildDir/native-libs")
     baseName 'native-libs'
     extension 'jar'

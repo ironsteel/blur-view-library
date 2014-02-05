@@ -17,13 +17,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/image_bg"
                 />
-            
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lorem_ipsum" 
-                android:textColor="@android:color/white"
-                android:textSize="18sp"/>
+
         </FrameLayout>
     </ScrollView>
 
@@ -34,7 +28,7 @@
         android:layout_height="80dp"
         android:layout_gravity="bottom"
         blurView:blurRadius="5"
-        android:background="#5500f100">
+        android:background="#55000000">
 
 
         <TextView

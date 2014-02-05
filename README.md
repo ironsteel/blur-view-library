@@ -56,10 +56,12 @@ Example:
     view.getBlurRaduis();
 ```
 
-## Credits
+## Alternative libraries
 
 - BlurEffectForAndroidDesign - <https://github.com/PomepuyN/BlurEffectForAndroidDesign>
 - android\_annblur - <https://github.com/harism/android_anndblur>
+
+## Credits
 
 - Background image is from Nicolas Pomepuy's Blur Effect for Android Design -project<br>
   https://github.com/PomepuyN/BlurEffectForAndroidDesign
